@@ -3,7 +3,7 @@
 # @Author: Sidharth Mishra
 # @Date:   2017-02-12 17:12:58
 # @Last Modified by:   Sidharth Mishra
-# @Last Modified time: 2017-02-13 16:14:41
+# @Last Modified time: 2017-02-13 17:35:42
 
 
 
@@ -18,6 +18,9 @@ for the ACTransit's APIs.
 Note - These classes are only for reading, since they are not going to allow you to change any data.
 For modifying data, please create another wrapper on these classes.
 '''
+
+from enum import Enum
+
 
 
 # STOPS
@@ -65,7 +68,7 @@ class ACTransitStop(object):
     '''
     The name of the stop as per the AC Transit system.
 
-    :return: string
+    :return: str
     '''
 
     return self.__name
@@ -97,7 +100,7 @@ class ACTransitStop(object):
     The time a vehicle is scheduled to depart from this stop. 
     Note: The 'date' part of this variable is unimportant, use only the Time.
 
-    :return: date-string 
+    :return: date-str 
     '''
 
     return self.__scheduled_time
@@ -106,7 +109,7 @@ class ACTransitStop(object):
     '''
     repr() calls this method.
 
-    :return: string
+    :return: str
     '''
 
     return 'ACTransitStop({})'.format(repr(self.__json__))
@@ -178,7 +181,7 @@ class ACTransitPrediction(object):
   def route_name(self):
     '''
     The route name of the prediction as per the AC Transit system.
-    :return: string
+    :return: str
     '''
 
     return self.__route_name
@@ -202,7 +205,7 @@ class ACTransitPrediction(object):
 
     for eg - "2017-01-11T17:31:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__predicted_departure
@@ -216,7 +219,7 @@ class ACTransitPrediction(object):
 
     for eg - "2017-01-11T17:31:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__predicted_date_time
@@ -225,7 +228,7 @@ class ACTransitPrediction(object):
     '''
     called by the repr()
 
-    :return: string
+    :return: str
     '''
 
     return 'ACTransitPrediction({})'.format(repr(self.__json__))
@@ -322,7 +325,7 @@ class ACTransitVehicle(object):
 
     for eg - "2017-02-12T18:42:34.7670857-08:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__time_last_reported
@@ -331,7 +334,7 @@ class ACTransitVehicle(object):
     '''
     called by repr()
 
-    :return: string
+    :return: str
     '''
 
     return 'ACTransitVehicle({})'.format(repr(self.__json__))
@@ -369,7 +372,7 @@ class ACTransitGtfsScheduleInfo(object):
 
     for eg - "2017-02-13T11:19:49.9671828-08:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__updated_date
@@ -381,7 +384,7 @@ class ACTransitGtfsScheduleInfo(object):
 
     for eg - "2017-02-13T11:19:49.9671828-08:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__earliest_service_date
@@ -393,7 +396,7 @@ class ACTransitGtfsScheduleInfo(object):
 
     for eg - "2017-02-13T11:19:49.9671828-08:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__latest_service_date
@@ -402,7 +405,7 @@ class ACTransitGtfsScheduleInfo(object):
     '''
     called by the repr()
 
-    :return: string
+    :return: str
     '''
 
     return 'ACTransitGtfsScheduleInfo({})'.format(repr(self.__json__))
@@ -415,12 +418,12 @@ class ACTransitGtfsScheduleInfo(object):
 # Sample JSON reponse object from ACTransit - 
 # {
 #   "PostDate": "2017-02-13T00:57:45.0014771-08:00",
-#   "Title": "sample string 1",
-#   "NoticeText": "sample string 2",
-#   "Url": "sample string 3",
+#   "Title": "sample str 1",
+#   "NoticeText": "sample str 2",
+#   "Url": "sample str 3",
 #   "ImpactedRoutes": [
-#     "sample string 1",
-#     "sample string 2"
+#     "sample str 1",
+#     "sample str 2"
 #   ]
 # }
 class ACTransitServiceNotice(object):
@@ -448,7 +451,7 @@ class ACTransitServiceNotice(object):
 
     for eg - "2017-02-13T00:57:45.0014771-08:00"
 
-    :return: datestring (date in string format)
+    :return: datestr (date in str format)
     '''
 
     return self.__post_date
@@ -458,7 +461,7 @@ class ACTransitServiceNotice(object):
     '''
     The title of the Notice.
 
-    :return: string
+    :return: str
     '''
 
     return self.__title
@@ -468,7 +471,7 @@ class ACTransitServiceNotice(object):
     '''
     The text in the Service Notice, the description.
 
-    :return: string
+    :return: str
     '''
 
     return self.__notice_text
@@ -478,7 +481,7 @@ class ACTransitServiceNotice(object):
     '''
     The URL to the service notice on ACTransit's website.
 
-    :return: string
+    :return: str
     '''
 
     return self.__url
@@ -488,9 +491,9 @@ class ACTransitServiceNotice(object):
     '''
     A list of the route names that are impacted by this service notice.
     
-    for eg - ["sample string 1", "sample string 2"]
+    for eg - ["sample str 1", "sample str 2"]
 
-    :return: list(string)
+    :return: list(str)
     '''
 
     return self.__impacted_routes
@@ -499,7 +502,7 @@ class ACTransitServiceNotice(object):
     '''
     called by the repr()
 
-    :return: string
+    :return: str
     '''
     
     return 'ACTransitServiceNotice({})'.format(repr(self.__json__))
@@ -512,9 +515,9 @@ class ACTransitServiceNotice(object):
 # Sample JSON response object from ACTransit -
 #
 # {
-#   "RouteId": "sample string 1",
-#   "Name": "sample string 2",
-#   "Description": "sample string 3"
+#   "RouteId": "sample str 1",
+#   "Name": "sample str 2",
+#   "Description": "sample str 3"
 # }
 class ACTransitRoute(object):
   '''
@@ -537,7 +540,7 @@ class ACTransitRoute(object):
     '''
     The ID of the route
 
-    :return: string
+    :return: str
     '''
 
     return self.__route_id
@@ -547,7 +550,7 @@ class ACTransitRoute(object):
     '''
     The name of the route as seen by public.
 
-    :return: string
+    :return: str
     '''
 
     return self.__name
@@ -557,7 +560,7 @@ class ACTransitRoute(object):
     '''
     Additional information regarding the route.
 
-    :return: string
+    :return: str
     '''
 
     return self.__description
@@ -566,7 +569,7 @@ class ACTransitRoute(object):
     '''
     called by the repr()
 
-    :return: string
+    :return: str
     '''
 
     return 'ACTransitRoute({})'.format(repr(self.__json__))
@@ -574,8 +577,117 @@ class ACTransitRoute(object):
 
 
 
+# ACTransitTripScheduleType -- Enumeration
+#
+# Sample values - 
+# Weekday - 0
+# Saturday - 5
+# Sunday - 6
+class ACTransitTripScheduleType(Enum):
+  '''
+  Wrapper for the enumeration as specified by ACTransit.
+
+  The type which determines the type of the trip. NOTE: Holidays run on Sunday schedule.
+  '''
+  WEEKDAY = 0
+  SATURDAY = 5
+  SUNDAY = 6
 
 
+
+
+# Trip
+#
+# Sample JSON response object -
+# {
+#     "TripId": 1,
+#     "RouteName": "sample str 2",
+#     "ScheduleType": 0,
+#     "StartTime": "2017-02-12T19:59:08.7349044-08:00",
+#     "Direction": "Northbound" (or might be "Southbound")
+# }
+class ACTransitTrip(object):
+  '''
+  The wrapper class for Trip JSON response object from ACTransit's APIs.
+  This wrapper class holds the information describing the trip information of a vehicle.
+  '''
+
+  def __init__(self, json_obj):
+    '''
+    Initializes the ACTransitTrip object from the JSON response object.
+    '''
+
+    self.__json__ = json_obj
+    self.__trip_id = json_obj['TripId']
+    self.__route_name = json_obj['RouteName']
+    self.__schedule_type = json_obj['ScheduleType']
+    self.__start_time = json_obj['StartTime']
+    self.__direction = json_obj['Direction']
+
+  @property
+  def trip_id(self):
+    '''
+    The ID of this trip.
+
+    :return: int
+    '''
+
+    return self.__trip_id
+
+  @property
+  def route_name(self):
+    '''
+    The route name which the trip is currently running.
+
+    :return: str
+    '''
+
+    return self.__route_name
+
+  @property
+  def schedule_type(self):
+    '''
+    The schedule for which this trip is being run.
+
+    for eg - WEEKDAT, SATURDAY or SUNDAY
+
+    :return: ACTransitTripScheduleType
+    '''
+
+    return ACTransitTripScheduleType(self.__schedule_type)
+
+  @property
+  def start_time(self):
+    '''
+    The scheduled start time for the trip.
+
+    for eg - "2017-02-12T19:59:08.7349044-08:00"
+
+    :return: datestr (date in str format)
+    '''
+
+    return self.__start_time
+
+  @property
+  def direction(self):
+    '''
+    The direction the current trip is heading.
+
+    For eg - Northbound or Southbound
+
+    :return: str
+    '''
+
+    return self.__direction
+
+  def __repr__(self):
+    '''
+    used by the repr()
+
+    :return: str
+    '''
+
+    return 'ACTransitTrip({})'.format(repr(self.__json__))
 
 
 
