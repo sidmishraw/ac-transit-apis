@@ -10,7 +10,7 @@ ACTransit APIs
         :target: https://travis-ci.org/sidmishraw/actransit_apis
 
 .. image:: https://readthedocs.org/projects/actransit-apis/badge/?version=latest
-        :target: https://actransit-apis.readthedocs.io/en/latest/?badge=latest
+        :target: http://ac-transit-apis.readthedocs.io/en/latest/
         :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/sidmishraw/actransit_apis/shield.svg
