@@ -9,8 +9,8 @@ ACTransit APIs
 .. image:: https://img.shields.io/travis/sidmishraw/actransit_apis.svg
         :target: https://travis-ci.org/sidmishraw/actransit_apis
 
-.. image:: https://readthedocs.org/projects/actransit_apis/badge/?version=latest
-        :target: http://actransit_apis.readthedocs.io/en/latest/
+.. image:: https://readthedocs.org/projects/ac-transit-apis/badge/?version=latest
+        :target: http://ac-transit-apis.readthedocs.io/en/latest/
         :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/sidmishraw/actransit_apis/shield.svg
