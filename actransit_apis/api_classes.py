@@ -3,7 +3,7 @@
 # @Author: Sidharth Mishra
 # @Date:   2017-02-12 17:12:58
 # @Last Modified by:   Sidharth Mishra
-# @Last Modified time: 2017-02-13 17:35:42
+# @Last Modified time: 2017-02-14 09:26:00
 
 
 
@@ -691,10 +691,195 @@ class ACTransitTrip(object):
 
 
 
+# TimePoint
+#
+# Sample ACTransit JSON response object
+#   {
+#     "TripId": 1,
+#     "Sequence": 2,
+#     "Latitude": 1.0,
+#     "Longitude": 1.0
+#   }
+#   or
+#   {
+#     "TripId": 1,
+#     "Sequence": 2,
+#     "Latitude": 1.0,
+#     "Longitude": 1.0
+#   }
+class ACTransitTimePoint(object):
+  '''
+  The wrapper class for the TimePoint JSON response object from ACTransit's APIs
+  '''
+
+  def __init__(self, json_obj):
+    '''
+    Initializes the ACTransitTimePoint object from the incoming JSON response objects
+    '''
+
+    self.__json__ = json_obj
+    self.__trip_id = json_obj['TripId']
+    self.__sequence = json_obj['Sequence']
+    self.__latitude = json_obj['Latitude']
+    self.__longitude = json_obj['Longitude']
+
+  @property
+  def trip_id(self):
+    '''
+    The Trip for which this timepoint and sequence are valid.
+
+    :return: int
+    '''
+
+    return self.__trip_id
+
+  @property
+  def sequence(self):
+    '''
+    The order this timepoint falls along the path for the given trip.
+
+    :return: int
+    '''
+
+    return self.__sequence
+
+  @property
+  def latitude(self):
+    '''
+    The latitude coordinate
+
+    :return: float
+    '''
+
+    return self.__latitude`
+
+  @property
+  def longitude(self):
+    '''
+    The longitide coordinate.
+
+    :return: float
+    '''
+
+    return self.__longitude
+
+  def __repr__(self):
+    '''
+    called by the repr()
+
+    :return: str
+    '''
+
+    return 'ACTransitTimePoint({})'.format(repr(self.__json__))
 
 
 
 
+# TripEstimate
+#
+# Sample JSON object for  TripEstimate - 
+# {
+#   "RouteName": "sample string 1",
+#   "OriginStopId": 2,
+#   "DestinationStopId": 3,
+#   "ExpectedDepartureTime": "2017-02-14T09:15:53.5418487-08:00",
+#   "TripDuration": "00:00:00.1234567",
+#   "VehicleId": 1
+# }
+
+# or 
+
+# {
+#   "RouteName": "sample string 1",
+#   "OriginStopId": 2,
+#   "DestinationStopId": 3,
+#   "ExpectedDepartureTime": "2017-02-14T09:15:53.5418487-08:00",
+#   "TripDuration": "00:00:00.1234567",
+#   "VehicleId": 1
+# }
+class ACTransitTripEstimate(object):
+  '''
+  The wrapper class for the TripEstimate JSON response object from ACTransit APIs
+
+  Provides details of all estimated trip times between stops.
+  '''
+
+  def __init__(self, json_obj):
+    '''
+    Initializes the ACTransitTripEstimate object from the incoming JSON response object
+    '''
+
+    self.__json__ = json_obj
+    self.__route_name = json_obj['RouteName']
+    self.__origin_stop_id = json_obj['OriginStopId']
+    self.__destination_stop_id = json_obj['DestinationStopId']
+    self.__expected_departure_time = json_obj['ExpectedDepartureTime']
+    self.__trip_duration = json_obj['TripDuration']
+    self.__vehicle_id = json_obj['VehicleId']
+
+  @property
+  def route_name(self):
+    '''
+    The name of the route for the trip
+
+    :return: str
+    '''
+
+    return self.__route_name
+
+  @property
+  def origin_stop_id(self):
+    '''
+    The starting point Stop Id
+
+    :return: int
+    '''
+
+    return self.__origin_stop_id
+
+  @property
+  def destination_stop_id(self):
+    '''
+    The destination Stop Id
+
+    :return: int
+    '''
+
+    return self.__destination_stop_id
+
+  @property
+  def expected_departure_time(self):
+    '''
+    The predicted time a vehicle should arrive at the OriginStopId
+
+    for eg - "2017-02-14T09:15:53.5418487-08:00"
+
+    :return: datestr (date in str format)
+    '''
+
+    return self.__expected_departure_time
+
+  @property
+  def trip_duration(self):
+    '''
+    Total trip time
+
+    for eg - "00:00:00.1234567"
+
+    :return: timestr (time in str format)
+    '''
+
+    return self.__trip_duration
+
+  @property
+  def vehicle_id(self):
+    '''
+    The vehicle id which is expected to service the trip.
+
+    :return: int
+    '''
+
+    return self.__vehicle_id
 
 
 
