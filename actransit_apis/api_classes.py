@@ -3,7 +3,7 @@
 # @Author: Sidharth Mishra
 # @Date:   2017-02-12 17:12:58
 # @Last Modified by:   Sidharth Mishra
-# @Last Modified time: 2017-02-14 09:26:00
+# @Last Modified time: 2017-02-14 09:29:20
 
 
 
@@ -880,6 +880,15 @@ class ACTransitTripEstimate(object):
     '''
 
     return self.__vehicle_id
+
+  def __repr__(self):
+    '''
+    called by the repr()
+
+    :return: str
+    '''
+
+    return 'ACTransitTripEstimate({})'.format(repr(self.__json__))
 
 
 
